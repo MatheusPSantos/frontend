@@ -1,14 +1,21 @@
 import React from 'react';
+import { connect } from 'react-redux';
 
 
-class Player extends React.Component {
-    render() {
-        return (
+function Player({ selectedCategory, selectedMovie }) {
+    return (
+        <section className='player'>
             <h1 className='player-container'>
-                Video player
+                {selectedCategory.name}
             </h1>
-        );
-    }
+            <h2>{selectedMovie.title}</h2>
+        </section>
+    );
 }
 
-export default Player;
+const mapStateToProps = (store) => ({
+    selectedCategory: store.MovieReducer.selectedCategory,
+    selectedMovie: store.MovieReducer.selectedMovie
+});
+
+export default connect(mapStateToProps)(Player);

@@ -1,4 +1,8 @@
-function Sidebar({ categories }) {
+import { connect } from 'react-redux';
+import { MovieAction } from '../actions/MovieAction';
+
+function Sidebar({ categories, selectMovie }) {
+
     return (
         <aside className='sidebar-container'>
             {categories.map((category) => (
@@ -8,6 +12,11 @@ function Sidebar({ categories }) {
                         {category.movies.map((movie) => (
                             <li key={movie.id}>
                                 {movie.title} was released in {movie.released}
+                                <button
+                                    onClick={() => selectMovie(category, movie)}
+                                >
+                                    Select
+                                </button>
                             </li>
                         ))}
                     </ul>
@@ -17,5 +26,12 @@ function Sidebar({ categories }) {
     );
 }
 
+const mapStateToProps = (store) => ({
+    categories: store.MovieReducer.categories,
+});
 
-export default Sidebar;
+const mapDispatchToProps = (dispatch) => ({
+    selectMovie: (category, movie) => dispatch(MovieAction(category, movie))
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Sidebar);

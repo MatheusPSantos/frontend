@@ -2,8 +2,8 @@ export const categories = [
     {
         id: 1, name: "Drama", movies: [
             { id: 1, title: "The boy in the striped pajamas", released: 2008 },
-            { id: 1, title: "The pursuit of hapiness", released: 2006 },
-            { id: 1, title: "Fences", released: 2016 },
+            { id: 2, title: "The pursuit of hapiness", released: 2006 },
+            { id: 3, title: "Fences", released: 2016 },
         ]
     },
     { id: 2, name: "Action", movies: [{ id: 4, title: "Shouter", released: 2007 }] },
