@@ -1,0 +1,17 @@
+body {
+  padding: 30px;
+}
+
+.App {
+  text-align: center;
+}
+
+.sidebar-container {
+  text-align: left;
+}
+
+.sidebar-container li {
+  list-style: none;
+}
+
+.player-container {}
